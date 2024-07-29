@@ -109,7 +109,7 @@ SubShader {
 			fixed4	faceColor		: COLOR;
 			fixed4	outlineColor	: COLOR1;
 			float4	texcoord0		: TEXCOORD0;			// Texture UV, Mask UV
-			half4	param			: TEXCOORD1;			// Scale(x), BiasIn(y), BiasOut(z), Bias(w)
+			half4	param			: TEXCOORD1;			// Scale(x), Biasin(y), BiasOut(z), Bias(w)
 			half4	mask			: TEXCOORD2;			// Position in clip space(xy), Softness(zw)
 			#if (UNDERLAY_ON | UNDERLAY_INNER)
 			float4	texcoord1		: TEXCOORD3;			// Texture UV, alpha, reserved

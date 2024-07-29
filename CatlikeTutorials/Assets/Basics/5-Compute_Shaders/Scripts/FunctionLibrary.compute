@@ -1,0 +1,447 @@
+#pragma kernel WaveKernel
+#pragma kernel WaveToMultiWaveKernel
+#pragma kernel WaveToRippleKernel
+#pragma kernel WaveToSphereKernel
+#pragma kernel WaveToVerticalSphereKernel
+#pragma kernel WaveToHorizontalSphereKernel
+#pragma kernel WaveToCollapseSphereKernel
+#pragma kernel WaveToTwistingSphereKernel
+#pragma kernel WaveToHalfTorusKernel
+#pragma kernel WaveToHornTorusKernel
+#pragma kernel WaveToDonutKernel
+#pragma kernel WaveToAnimatingTorusKernel
+
+#pragma kernel MultiWaveToWaveKernel
+#pragma kernel MultiWaveKernel
+#pragma kernel MultiWaveToRippleKernel
+#pragma kernel MultiWaveToSphereKernel
+#pragma kernel MultiWaveToVerticalSphereKernel
+#pragma kernel MultiWaveToHorizontalSphereKernel
+#pragma kernel MultiWaveToCollapseSphereKernel
+#pragma kernel MultiWaveToTwistingSphereKernel
+#pragma kernel MultiWaveToHalfTorusKernel
+#pragma kernel MultiWaveToHornTorusKernel
+#pragma kernel MultiWaveToDonutKernel
+#pragma kernel MultiWaveToAnimatingTorusKernel
+
+#pragma kernel RippleToWaveKernel
+#pragma kernel RippleToMultiWaveKernel
+#pragma kernel RippleKernel
+#pragma kernel RippleToSphereKernel
+#pragma kernel RippleToVerticalSphereKernel
+#pragma kernel RippleToHorizontalSphereKernel
+#pragma kernel RippleToCollapseSphereKernel
+#pragma kernel RippleToTwistingSphereKernel
+#pragma kernel RippleToHalfTorusKernel
+#pragma kernel RippleToHornTorusKernel
+#pragma kernel RippleToDonutKernel
+#pragma kernel RippleToAnimatingTorusKernel
+
+#pragma kernel SphereToWaveKernel
+#pragma kernel SphereToMultiWaveKernel
+#pragma kernel SphereToRippleKernel
+#pragma kernel SphereKernel
+#pragma kernel SphereToVerticalSphereKernel
+#pragma kernel SphereToHorizontalSphereKernel
+#pragma kernel SphereToCollapseSphereKernel
+#pragma kernel SphereToTwistingSphereKernel
+#pragma kernel SphereToHalfTorusKernel
+#pragma kernel SphereToHornTorusKernel
+#pragma kernel SphereToDonutKernel
+#pragma kernel SphereToAnimatingTorusKernel
+
+#pragma kernel VerticalSphereToWaveKernel
+#pragma kernel VerticalSphereToMultiWaveKernel
+#pragma kernel VerticalSphereToRippleKernel
+#pragma kernel VerticalSphereToSphereKernel
+#pragma kernel VerticalSphereKernel
+#pragma kernel VerticalSphereToHorizontalSphereKernel
+#pragma kernel VerticalSphereToCollapseSphereKernel
+#pragma kernel VerticalSphereToTwistingSphereKernel
+#pragma kernel VerticalSphereToHalfTorusKernel
+#pragma kernel VerticalSphereToHornTorusKernel
+#pragma kernel VerticalSphereToDonutKernel
+#pragma kernel VerticalSphereToAnimatingTorusKernel
+
+#pragma kernel HorizontalSphereToWaveKernel
+#pragma kernel HorizontalSphereToMultiWaveKernel
+#pragma kernel HorizontalSphereToRippleKernel
+#pragma kernel HorizontalSphereToSphereKernel
+#pragma kernel HorizontalSphereToVerticalSphereKernel
+#pragma kernel HorizontalSphereKernel
+#pragma kernel HorizontalSphereToCollapseSphereKernel
+#pragma kernel HorizontalSphereToTwistingSphereKernel
+#pragma kernel HorizontalSphereToHalfTorusKernel
+#pragma kernel HorizontalSphereToHornTorusKernel
+#pragma kernel HorizontalSphereToDonutKernel
+#pragma kernel HorizontalSphereToAnimatingTorusKernel
+
+#pragma kernel CollapseSphereToWaveKernel
+#pragma kernel CollapseSphereToMultiWaveKernel
+#pragma kernel CollapseSphereToRippleKernel
+#pragma kernel CollapseSphereToSphereKernel
+#pragma kernel CollapseSphereToVerticalSphereKernel
+#pragma kernel CollapseSphereToHorizontalSphereKernel
+#pragma kernel CollapseSphereKernel
+#pragma kernel CollapseSphereToTwistingSphereKernel
+#pragma kernel CollapseSphereToHalfTorusKernel
+#pragma kernel CollapseSphereToHornTorusKernel
+#pragma kernel CollapseSphereToDonutKernel
+#pragma kernel CollapseSphereToAnimatingTorusKernel
+
+#pragma kernel TwistingSphereToWaveKernel
+#pragma kernel TwistingSphereToMultiWaveKernel
+#pragma kernel TwistingSphereToRippleKernel
+#pragma kernel TwistingSphereToSphereKernel
+#pragma kernel TwistingSphereToVerticalSphereKernel
+#pragma kernel TwistingSphereToHorizontalSphereKernel
+#pragma kernel TwistingSphereToCollapseSphereKernel
+#pragma kernel TwistingSphereKernel
+#pragma kernel TwistingSphereToHalfTorusKernel
+#pragma kernel TwistingSphereToHornTorusKernel
+#pragma kernel TwistingSphereToDonutKernel
+#pragma kernel TwistingSphereToAnimatingTorusKernel
+
+#pragma kernel HalfTorusToWaveKernel
+#pragma kernel HalfTorusToMultiWaveKernel
+#pragma kernel HalfTorusToRippleKernel
+#pragma kernel HalfTorusToSphereKernel
+#pragma kernel HalfTorusToVerticalSphereKernel
+#pragma kernel HalfTorusToHorizontalSphereKernel
+#pragma kernel HalfTorusToCollapseSphereKernel
+#pragma kernel HalfTorusToTwistingSphereKernel
+#pragma kernel HalfTorusKernel
+#pragma kernel HalfTorusToHornTorusKernel
+#pragma kernel HalfTorusToDonutKernel
+#pragma kernel HalfTorusToAnimatingTorusKernel
+
+#pragma kernel HornTorusToWaveKernel
+#pragma kernel HornTorusToMultiWaveKernel
+#pragma kernel HornTorusToRippleKernel
+#pragma kernel HornTorusToSphereKernel
+#pragma kernel HornTorusToVerticalSphereKernel
+#pragma kernel HornTorusToHorizontalSphereKernel
+#pragma kernel HornTorusToCollapseSphereKernel
+#pragma kernel HornTorusToTwistingSphereKernel
+#pragma kernel HornTorusToHalfTorusKernel
+#pragma kernel HornTorusKernel
+#pragma kernel HornTorusToDonutKernel
+#pragma kernel HornTorusToAnimatingTorusKernel
+
+#pragma kernel DonutToWaveKernel
+#pragma kernel DonutToMultiWaveKernel
+#pragma kernel DonutToRippleKernel
+#pragma kernel DonutToSphereKernel
+#pragma kernel DonutToVerticalSphereKernel
+#pragma kernel DonutToHorizontalSphereKernel
+#pragma kernel DonutToCollapseSphereKernel
+#pragma kernel DonutToTwistingSphereKernel
+#pragma kernel DonutToHalfTorusKernel
+#pragma kernel DonutToHornTorusKernel
+#pragma kernel DonutKernel
+#pragma kernel DonutToAnimatingTorusKernel
+
+#pragma kernel AnimatingTorusToWaveKernel
+#pragma kernel AnimatingTorusToMultiWaveKernel
+#pragma kernel AnimatingTorusToRippleKernel
+#pragma kernel AnimatingTorusToSphereKernel
+#pragma kernel AnimatingTorusToVerticalSphereKernel
+#pragma kernel AnimatingTorusToHorizontalSphereKernel
+#pragma kernel AnimatingTorusToCollapseSphereKernel
+#pragma kernel AnimatingTorusToTwistingSphereKernel
+#pragma kernel AnimatingTorusToHalfTorusKernel
+#pragma kernel AnimatingTorusToHornTorusKernel
+#pragma kernel AnimatingTorusToDonutKernel
+#pragma kernel AnimatingTorusKernel
+
+
+
+RWStructuredBuffer<float3> _Positions;
+uint _Resolution;
+float _Step;
+float _Time;
+float _TransitionProgress;
+
+// We can convert the thread identifier to UV coordinates, 
+// i we know the step size o the graph
+float2 GetUV(uint3 id)
+{
+    return (id.xy + 0.5) * _Step - 1.0;
+}
+
+void SetPosition(uint3 id, float3 position)
+{
+    _Positions[id.x + id.y * _Resolution] = position;
+}
+
+#define PI 3.14159265358979323846
+float3 Wave(float u, float v, float t)
+{
+    return float3(u, sin(PI * (u + v + t)), v);
+}
+
+float3 MultiWave(float u, float v, float t)
+{
+    float3 p = float3(u, sin(PI * (u + 0.5 * t)), v);
+    p.y += 0.5 * sin(2 * PI * (v + t));
+    p.y += sin(PI * (u + v + 0.25 * t));
+    p.y *= (1 / 2.5f);
+    return p;
+}
+
+float3 Ripple(float u, float v, float t)
+{
+    float d = sqrt(u * u + v * v);
+    float3 p = float3(u, sin(4 * PI * d - t), v);
+    p.y /= (1 + 10 * d);
+    return p;
+}
+
+float3 Sphere(float u, float v, float t)
+{
+    float r = cos(0.5 * PI * v);
+    float3 p;
+    p.x = r * sin(PI * u);
+    p.y = sin(PI * 0.5 * v);
+    p.z = r * cos(PI * u);
+    return p;
+}
+float3 CollapseSphere(float u, float v, float t)
+{
+    float r = 0.5 + 0.5 * sin(PI * t);
+    float s = r * cos(0.5 * PI * v);
+    float3 p;
+    p.x = s * sin(PI * u);
+    p.y = r * sin(0.5 * PI * v);
+    p.z = s * cos(PI * u);
+    return p;
+}
+
+float3 VerticalSphere(float u, float v, float t)
+{
+    float r = 0.9 + 0.1 * sin(8 * PI * u);
+    float s = r * cos(0.5 * PI * v);
+    float3 p = float3(s * sin(PI * u), r * sin(0.5 * PI * v), s * cos(PI * u));
+    return p;
+}
+float3 HorizontalSphere (float u, float v, float t) {
+    float r = 0.9 + 0.1 * sin(8 * PI * v);
+    float s = r * cos(0.5 * PI * v);
+    float3 p = float3(s * sin(PI * u), r * sin(0.5 * PI * v), s * cos(PI * u));
+    return p;
+}
+float3 TwistingSphere(float u, float v, float t)
+{
+    float r = 0.9 + 0.1 * sin(PI * (12.0 * u + 8.0 * v + t));
+    float s = r * cos(0.5 * PI * v);
+    float3 p = float3(s * sin(PI * u), r * sin(0.5 * PI * v), s * cos(PI * u));
+    return p;
+}
+float3 HalfTorus(float u, float v, float t) {
+    float r = 1;
+    float s = 0.5 + r * cos(PI * v);
+    float3 p = float3(s * sin(PI * u), r * sin(PI * v), s * cos(PI * u));
+    return p;
+}
+float3 HornTorus(float u, float v, float t)
+{
+    float r = 1;
+    float s = 1 + r * cos(PI * v);
+    float3 p = float3(s * sin(PI * u), r * sin(PI * v), s * cos(PI * u));
+    return p;
+}
+float3 Donut(float u, float v, float t)
+{
+    float r1 = 0.75;
+    float r2 = 0.25;
+    float s = r1 + r2 * cos(PI * v);
+    float3 p = float3(s * sin(PI * u), r2 * sin(PI * v), s * cos(PI * u));
+    return p;
+}
+float3 AnimatingTorus(float u, float v, float t)
+{
+    float r1 = 0.7 + 0.1 * sin(PI * (8.0 * u + 0.5 * t));
+    float r2 = 0.15 + 0.05 * sin(PI * (16.0 * u + 8.0 * v + 3.0 * t));
+    float s = r1 + r2 * cos(PI * v);
+    float3 p = float3(s * sin(PI * u), r2 * sin(PI * v), s * cos(PI * u));
+    return p;
+}
+
+// Each thread is identified by a vector o three unsigned integers, 
+// which we can access by adding a uint3 parameter to our function.
+// We have to explicitly indicate that this parameter is for the thread identifier.
+
+#define KERNEL_MORPH_FUNCTION(functionA, functionB) \
+[numthreads(8,8,2)] \
+void functionA##To##functionB##Kernel(uint3 id : SV_DispatchThreadID){ \
+    float2 uv = GetUV(id); \
+    float3 position = lerp( \
+			functionA(uv.x, uv.y, _Time), functionB(uv.x, uv.y, _Time), \
+			_TransitionProgress \
+		); \
+    SetPosition(id, position); \
+} 
+
+#define KERNEL_FUNCTION(function) \
+[numthreads(8,8,2)] \
+void function##Kernel(uint3 id : SV_DispatchThreadID){ \
+    float2 uv = GetUV(id); \
+    SetPosition(id, function(uv.x, uv.y, _Time)); \
+} 
+
+KERNEL_FUNCTION(Wave) 
+KERNEL_FUNCTION(MultiWave) 
+KERNEL_FUNCTION(Ripple) 
+KERNEL_FUNCTION(Sphere)  
+KERNEL_FUNCTION(VerticalSphere)  
+KERNEL_FUNCTION(HorizontalSphere)     
+KERNEL_FUNCTION(CollapseSphere)
+KERNEL_FUNCTION(TwistingSphere)  
+KERNEL_FUNCTION(HalfTorus)  
+KERNEL_FUNCTION(HornTorus)    
+KERNEL_FUNCTION(Donut)     
+KERNEL_FUNCTION(AnimatingTorus) 
+
+KERNEL_MORPH_FUNCTION(Wave, MultiWave);
+KERNEL_MORPH_FUNCTION(Wave, Ripple);
+KERNEL_MORPH_FUNCTION(Wave, Sphere);
+KERNEL_MORPH_FUNCTION(Wave, VerticalSphere);
+KERNEL_MORPH_FUNCTION(Wave, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(Wave, CollapseSphere);
+KERNEL_MORPH_FUNCTION(Wave, TwistingSphere);
+KERNEL_MORPH_FUNCTION(Wave, HalfTorus);
+KERNEL_MORPH_FUNCTION(Wave, HornTorus);
+KERNEL_MORPH_FUNCTION(Wave, Donut);
+KERNEL_MORPH_FUNCTION(Wave, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(MultiWave, Wave);
+KERNEL_MORPH_FUNCTION(MultiWave, Ripple);
+KERNEL_MORPH_FUNCTION(MultiWave, Sphere);
+KERNEL_MORPH_FUNCTION(MultiWave, VerticalSphere);
+KERNEL_MORPH_FUNCTION(MultiWave, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(MultiWave, CollapseSphere);
+KERNEL_MORPH_FUNCTION(MultiWave, TwistingSphere);
+KERNEL_MORPH_FUNCTION(MultiWave, HalfTorus);
+KERNEL_MORPH_FUNCTION(MultiWave, HornTorus);
+KERNEL_MORPH_FUNCTION(MultiWave, Donut);
+KERNEL_MORPH_FUNCTION(MultiWave, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(Ripple, Wave);
+KERNEL_MORPH_FUNCTION(Ripple, MultiWave);
+KERNEL_MORPH_FUNCTION(Ripple, Sphere);
+KERNEL_MORPH_FUNCTION(Ripple, VerticalSphere);
+KERNEL_MORPH_FUNCTION(Ripple, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(Ripple, CollapseSphere);
+KERNEL_MORPH_FUNCTION(Ripple, TwistingSphere);
+KERNEL_MORPH_FUNCTION(Ripple, HalfTorus);
+KERNEL_MORPH_FUNCTION(Ripple, HornTorus);
+KERNEL_MORPH_FUNCTION(Ripple, Donut);
+KERNEL_MORPH_FUNCTION(Ripple, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(Sphere, Wave);
+KERNEL_MORPH_FUNCTION(Sphere, MultiWave);
+KERNEL_MORPH_FUNCTION(Sphere, Ripple);
+KERNEL_MORPH_FUNCTION(Sphere, VerticalSphere);
+KERNEL_MORPH_FUNCTION(Sphere, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(Sphere, CollapseSphere);
+KERNEL_MORPH_FUNCTION(Sphere, TwistingSphere);
+KERNEL_MORPH_FUNCTION(Sphere, HalfTorus);
+KERNEL_MORPH_FUNCTION(Sphere, HornTorus);
+KERNEL_MORPH_FUNCTION(Sphere, Donut);
+KERNEL_MORPH_FUNCTION(Sphere, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(VerticalSphere, Wave);
+KERNEL_MORPH_FUNCTION(VerticalSphere, MultiWave);
+KERNEL_MORPH_FUNCTION(VerticalSphere, Ripple);
+KERNEL_MORPH_FUNCTION(VerticalSphere, Sphere);
+KERNEL_MORPH_FUNCTION(VerticalSphere, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(VerticalSphere, CollapseSphere);
+KERNEL_MORPH_FUNCTION(VerticalSphere, TwistingSphere);
+KERNEL_MORPH_FUNCTION(VerticalSphere, HalfTorus);
+KERNEL_MORPH_FUNCTION(VerticalSphere, HornTorus);
+KERNEL_MORPH_FUNCTION(VerticalSphere, Donut);
+KERNEL_MORPH_FUNCTION(VerticalSphere, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(HorizontalSphere, Wave);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, MultiWave);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, Ripple);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, Sphere);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, VerticalSphere);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, CollapseSphere);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, TwistingSphere);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, HalfTorus);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, HornTorus);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, Donut);
+KERNEL_MORPH_FUNCTION(HorizontalSphere, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(CollapseSphere, Wave);
+KERNEL_MORPH_FUNCTION(CollapseSphere, MultiWave);
+KERNEL_MORPH_FUNCTION(CollapseSphere, Ripple);
+KERNEL_MORPH_FUNCTION(CollapseSphere, Sphere);
+KERNEL_MORPH_FUNCTION(CollapseSphere, VerticalSphere);
+KERNEL_MORPH_FUNCTION(CollapseSphere, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(CollapseSphere, TwistingSphere);
+KERNEL_MORPH_FUNCTION(CollapseSphere, HalfTorus);
+KERNEL_MORPH_FUNCTION(CollapseSphere, HornTorus);
+KERNEL_MORPH_FUNCTION(CollapseSphere, Donut);
+KERNEL_MORPH_FUNCTION(CollapseSphere, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(TwistingSphere, Wave);
+KERNEL_MORPH_FUNCTION(TwistingSphere, MultiWave);
+KERNEL_MORPH_FUNCTION(TwistingSphere, Ripple);
+KERNEL_MORPH_FUNCTION(TwistingSphere, Sphere);
+KERNEL_MORPH_FUNCTION(TwistingSphere, VerticalSphere);
+KERNEL_MORPH_FUNCTION(TwistingSphere, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(TwistingSphere, CollapseSphere);
+KERNEL_MORPH_FUNCTION(TwistingSphere, HalfTorus);
+KERNEL_MORPH_FUNCTION(TwistingSphere, HornTorus);
+KERNEL_MORPH_FUNCTION(TwistingSphere, Donut);
+KERNEL_MORPH_FUNCTION(TwistingSphere, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(HalfTorus, Wave);
+KERNEL_MORPH_FUNCTION(HalfTorus, MultiWave);
+KERNEL_MORPH_FUNCTION(HalfTorus, Ripple);
+KERNEL_MORPH_FUNCTION(HalfTorus, Sphere);
+KERNEL_MORPH_FUNCTION(HalfTorus, VerticalSphere);
+KERNEL_MORPH_FUNCTION(HalfTorus, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(HalfTorus, CollapseSphere);
+KERNEL_MORPH_FUNCTION(HalfTorus, TwistingSphere);
+KERNEL_MORPH_FUNCTION(HalfTorus, HornTorus);
+KERNEL_MORPH_FUNCTION(HalfTorus, Donut);
+KERNEL_MORPH_FUNCTION(HalfTorus, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(HornTorus, Wave);
+KERNEL_MORPH_FUNCTION(HornTorus, MultiWave);
+KERNEL_MORPH_FUNCTION(HornTorus, Ripple);
+KERNEL_MORPH_FUNCTION(HornTorus, Sphere);
+KERNEL_MORPH_FUNCTION(HornTorus, VerticalSphere);
+KERNEL_MORPH_FUNCTION(HornTorus, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(HornTorus, CollapseSphere);
+KERNEL_MORPH_FUNCTION(HornTorus, TwistingSphere);
+KERNEL_MORPH_FUNCTION(HornTorus, HalfTorus);
+KERNEL_MORPH_FUNCTION(HornTorus, Donut);
+KERNEL_MORPH_FUNCTION(HornTorus, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(Donut, Wave);
+KERNEL_MORPH_FUNCTION(Donut, MultiWave);
+KERNEL_MORPH_FUNCTION(Donut, Ripple);
+KERNEL_MORPH_FUNCTION(Donut, Sphere);
+KERNEL_MORPH_FUNCTION(Donut, VerticalSphere);
+KERNEL_MORPH_FUNCTION(Donut, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(Donut, CollapseSphere);
+KERNEL_MORPH_FUNCTION(Donut, TwistingSphere);
+KERNEL_MORPH_FUNCTION(Donut, HalfTorus);
+KERNEL_MORPH_FUNCTION(Donut, HornTorus);
+KERNEL_MORPH_FUNCTION(Donut, AnimatingTorus);
+
+KERNEL_MORPH_FUNCTION(AnimatingTorus, Wave);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, MultiWave);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, Ripple);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, Sphere);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, VerticalSphere);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, HorizontalSphere);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, CollapseSphere);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, TwistingSphere);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, HalfTorus);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, HornTorus);
+KERNEL_MORPH_FUNCTION(AnimatingTorus, Donut);
